@@ -1,0 +1,6 @@
+#
+# Tcl package index file for flightaware cplan @PACKAGE_VERSION@
+#
+
+
+package ifneeded Cplan @PACKAGE_VERSION@ [list load [file join $dir @PKG_LIB_FILE@]]\n[list source [file join $dir cplan_procs.tcl]]\n[list set ::cplan::wmmFile [file join $dir WMM.COF]]

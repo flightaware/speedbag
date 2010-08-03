@@ -1,0 +1,6 @@
+
+
+# $Id$
+
+./configure --with-tcl=/usr/local/lib/tcl8.5
+
