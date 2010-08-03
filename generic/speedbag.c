@@ -73,6 +73,7 @@ speedbag_TsvToArrayObjCmd (clientData, interp, objc, objv)
 	if (Tcl_ObjSetVar2 (interp, arrayNameObj, elementNameObj, valueObj, TCL_LEAVE_ERR_MSG) == NULL) {
 	    return TCL_ERROR;
 	}
+	Tcl_DecrRefCount (elementNameObj);
 	count++;
 
 	if (p == NULL) {
