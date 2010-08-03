@@ -1,0 +1,7 @@
+Makefile
+configure
+config.log
+config.status
+*.o
+libspeedbag.so.*
+pkgIndex.tcl

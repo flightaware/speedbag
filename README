@@ -1,15 +1,17 @@
 This is speedbag, a package for providing accelerated C-based routines for
 many common Tcl operations.
 
-$Id$
-
-
 USING THE SPEEDBAG INTERFACE
 ============================
 
 package require Speedbag
 
 ::speedbag::tsv_to_array $line arrayName
+
+splits a tab-separate line of key-value pairs into an array and returns the
+number of key-value pairs imported.
+
+It's an error if there is an uneven number of elements.
 
 
 BUGS
