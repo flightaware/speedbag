@@ -78,7 +78,7 @@ TEA_SETUP_COMPILER
 TEA_ADD_SOURCES([speedbag.c tclspeedbag.c])
 TEA_ADD_HEADERS([])
 TEA_ADD_INCLUDES([-I\"/usr/local/include\"])
-TEA_ADD_LIBS([-lmetar])
+TEA_ADD_LIBS([])
 TEA_ADD_CFLAGS([])
 TEA_ADD_STUB_SOURCES([])
 TEA_ADD_TCL_SOURCES([speedbag_procs.tcl])
