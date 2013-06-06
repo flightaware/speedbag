@@ -55,8 +55,14 @@ speedbag_TsvToArrayObjCmd (clientData, interp, objc, objv)
 	stringPtr = p + 1;
 
 	if (*stringPtr == '\0') {
-	    Tcl_AppendResult (interp, "list has uneven number of elements", NULL);
-	    return TCL_ERROR;
+		valueObj = Tcl_NewObj();
+        Tcl_IncrRefCount (elementNameObj);
+        if (Tcl_ObjSetVar2 (interp, arrayNameObj, elementNameObj, valueObj, TCL_LEAVE_ERR_MSG) == NULL) {
+            return TCL_ERROR;
+        }
+        Tcl_DecrRefCount (elementNameObj);
+        count++;
+        break;
 	}
 
 	p = strchr (stringPtr, (int)'\t');
