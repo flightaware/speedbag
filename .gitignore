@@ -3,5 +3,7 @@ configure
 config.log
 config.status
 *.o
-libspeedbag.so.*
+*.so.*
+*.so
 pkgIndex.tcl
+autom4te.cache

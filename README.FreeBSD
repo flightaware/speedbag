@@ -1,6 +1,5 @@
 
 
-# $Id$
-
-./configure --with-tcl=/usr/local/lib/tcl8.5
+autoreconf
+./configure --with-tcl=/usr/local/lib/tcl8.6
 
