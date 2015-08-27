@@ -30,8 +30,7 @@
 EXTERN int
 Speedbag_Init(Tcl_Interp *interp)
 {
-    /* not until Tcl 8.5 */
-    /* Tcl_Namespace *namespace; */
+    Tcl_Namespace *namespace;
 
     /*
      * This may work with 8.0, but we are using strictly stubs here,
@@ -49,11 +48,7 @@ Speedbag_Init(Tcl_Interp *interp)
 	return TCL_ERROR;
     }
 
-    /* Not until Tcl 8.5 */
-    /* namespace = Tcl_CreateNamespace (interp, "speedbag", (ClientData)NULL, (Tcl_NamespaceDeleteProc *)NULL); */
-    if (Tcl_Eval (interp, "namespace eval speedbag {}") == TCL_ERROR) {
-	return TCL_ERROR;
-    }
+    namespace = Tcl_CreateNamespace (interp, "speedbag", (ClientData)NULL, (Tcl_NamespaceDeleteProc *)NULL);
 
     Tcl_CreateObjCommand (interp,
 			  "speedbag::tsv_to_array",
@@ -61,14 +56,9 @@ Speedbag_Init(Tcl_Interp *interp)
                           (ClientData) NULL,
                           (Tcl_CmdDeleteProc*) NULL);
 
-    /* Not until Tcl 8.5 */
-    /* if (Tcl_Export (interp, namespace, "*", 0) == TCL_ERROR) {
-	return TCL_ERROR;
-    } */
-    if (Tcl_Eval (interp, "namespace eval speedbag {namespace export *}") == TCL_ERROR) {
+    if (Tcl_Export (interp, namespace, "*", 0) == TCL_ERROR) {
 	return TCL_ERROR;
     }
-
 
     return TCL_OK;
 }
@@ -93,6 +83,7 @@ Speedbag_Init(Tcl_Interp *interp)
 EXTERN int
 Speedbag_SafeInit(Tcl_Interp *interp)
 {
-    return TCL_OK;
+    return Speedbag_Init (interp);
 }
 
+// vim: set ts=8 sw=4 sts=4 noet :

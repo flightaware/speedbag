@@ -98,3 +98,4 @@ speedbag_TsvToArrayObjCmd (clientData, interp, objc, objv)
     return TCL_OK;
 }
 
+// vim: set ts=8 sw=4 sts=4 noet :
