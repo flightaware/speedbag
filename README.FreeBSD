@@ -1,5 +1,5 @@
 
 
 autoreconf
-./configure --with-tcl=/usr/local/lib/tcl8.6
+CC=clang CXX=clang++ ./configure --with-tcl=/usr/local/lib/tcl8.6
 
