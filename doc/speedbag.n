@@ -1,0 +1,13 @@
+.TH speedbag n 0.0 "Accelerators for common Tcl operations"
+.HS Speedbag tcl
+.BS
+.SH NAME
+Speedbag \- C a package for providing accelerated C-based routines for common Tcl operations
+.SH SYNOPSIS
+\fBspeedbag::tsv_to_array\fR \fI $line arrayName\fR
+.br
+.SH DESCRIPTION
+Speedbag contains accelerators for certain Tcl procs that are common.
+.PP
+\fBspeedbag::tsv_to_array\fR takes a line of data consisting of tab-separated key-value pairs.  It parses the line and stores it into the specified array with the keys as array keys and the values corresponding to those keys.  It is the equivalent of \fBarray set arrayName [split $line "\t"]\fR
+.PP
