@@ -204,14 +204,9 @@ doc:
 	@echo "        xml2nroff sample.xml > sample.n"
 	@echo "        xml2html sample.xml > sample.html"
 
-install: all install-binaries install-libraries install-doc install-wmm
+install: all install-binaries install-libraries install-doc
 
 install-binaries: binaries install-lib-binaries install-bin-binaries
-
-install-wmm:
-	@mkdir -p $(DESTDIR)$(pkglibdir)
-	@echo "Installing WMM.COF file in $(DESTDIR)$(pkglibdir)"
-	@cp WMM.COF $(DESTDIR)$(pkglibdir)
 
 #========================================================================
 # This rule installs platform-independent files, such as header files.
