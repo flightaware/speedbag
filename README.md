@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/flightaware/speedbag.svg?branch=master)](https://travis-ci.org/flightaware/speedbag)
+
 This is speedbag, a package for providing accelerated C-based routines for
 many common Tcl operations.
 
