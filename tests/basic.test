@@ -1,0 +1,75 @@
+# -*- tcl -*-
+
+package require tcltest
+package require Speedbag
+
+namespace import ::tcltest::*
+
+namespace eval ::sb::test {
+
+	# from http://wiki.tcl.tk/1032
+	proc array-compare2 {array1 array2} {
+		upvar 1 $array1 foo $array2 bar
+
+		if {![array exists foo]} {
+			return -code error "$array1 is not an array"
+		}
+		if {![array exists bar]} {
+			return -code error "$array2 is not an array"
+		}
+		if {[array size foo] != [array size bar]} {
+			return 0
+		}
+		if {[array size foo] == 0} {
+			return 1
+		}
+
+		;# some 8.4 optimization using the lsort -unique feature
+		set keys [lsort -unique [concat [array names foo] [array names bar]]]
+		if {[llength $keys] != [array size foo]} {
+			return 0
+		}
+
+		foreach key $keys {
+			if {$foo($key) ne $bar($key)} {
+				return 0
+			}
+		}
+		return 1
+	}
+	
+	# ==================================================
+
+	test 1.00 {: Basic output
+	} -body {
+		array unset fruitArray
+
+		set line1 "fruit\tapple\tcolor\tred\tquality\tgood"
+		
+		::speedbag::tsv_to_array $line1 fruitArray
+
+
+		return [lsort -stride 2 [array get fruitArray]]
+	} -result [list color red fruit apple quality good]
+
+	# ==================================================
+
+	test 1.01 {: Basic comparison
+	} -body {
+		array unset fruitArray
+		array unset goodArray
+
+		set line1 "fruit\tapple\tcolor\tred\tquality\tgood"
+		
+		::speedbag::tsv_to_array $line1 fruitArray
+		array set goodArray [split $line1 "\t"]
+
+
+		return [array-compare2 fruitArray goodArray]
+	} -result 1
+	
+
+
+	
+
+}
