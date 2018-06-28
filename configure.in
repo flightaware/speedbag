@@ -18,7 +18,7 @@ dnl	to configure the system for the local environment.
 # so you can encode the package version directly into the source files.
 #-----------------------------------------------------------------------
 
-AC_INIT([speedbag], [1.1])
+AC_INIT([speedbag], [1.0.1])
 
 #-----------
 # Check to see if we have setproctitle
