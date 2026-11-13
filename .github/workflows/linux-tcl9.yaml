@@ -1,4 +1,4 @@
-name: Linux tcl8 build and test
+name: Linux tcl9 build and test
 
 on:
   push:
