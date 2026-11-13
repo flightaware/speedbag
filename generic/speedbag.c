@@ -27,7 +27,7 @@ int
 speedbag_TsvToArrayObjCmd (ClientData clientData,
                            Tcl_Interp *interp,
                            int objc,
-                           Tcl_Obj      *CONST objv[])
+                           Tcl_Obj      *const objv[])
 {
     char    *stringPtr;
     int      stringLen;

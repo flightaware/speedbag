@@ -4,5 +4,5 @@
  */
 
 extern int
-speedbag_TsvToArrayObjCmd (ClientData clientData, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]);
+speedbag_TsvToArrayObjCmd (ClientData clientData, Tcl_Interp *interp, int objc, Tcl_Obj *const objv[]);
 
