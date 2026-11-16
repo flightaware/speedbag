@@ -1,0 +1,34 @@
+name: Mac tcl8 build and test
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies	
+      run: |	
+        brew update
+        brew install tcl-tk@8 autoconf
+
+    - name: configure
+      run: |
+        autoreconf -vi
+        ./configure --with-tcl=/opt/homebrew/opt/tcl-tk@8/lib/ --prefix=/usr/local
+
+    - name: Build
+      run: make
+
+    - name: Install
+      run: sudo make install
+
+    - name: Test
+      run: make test
+

@@ -1,0 +1,36 @@
+name: Linux tcl8 build and test
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies	
+      run: |	
+        sudo apt-get update -qq	
+        sudo apt-get install -y gcc-11 g++-11	
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 110 --slave /usr/bin/g++ g++ /usr/bin/g++-11	
+        sudo apt-get install -y libbsd-dev tcl8.6-dev	
+
+    - name: configure
+      run: |
+        autoreconf -vi
+        ./configure
+
+    - name: Build
+      run: make
+
+    - name: Install
+      run: sudo make install
+
+    - name: Test
+      run: make test
+

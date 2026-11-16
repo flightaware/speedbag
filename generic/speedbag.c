@@ -24,14 +24,13 @@
  *-----------------------------------------------------------------------------
  */     
 int
-speedbag_TsvToArrayObjCmd (clientData, interp, objc, objv)
-    ClientData    clientData;
-    Tcl_Interp   *interp;
-    int           objc;
-    Tcl_Obj      *CONST objv[];
+speedbag_TsvToArrayObjCmd (ClientData clientData,
+                           Tcl_Interp *interp,
+                           int objc,
+                           Tcl_Obj      *const objv[])
 {
     char    *stringPtr;
-    int      stringLen;
+    Tcl_Size stringLen;
     int      count = 0;
     char    *p;
     char    *end;
