@@ -1,4 +1,4 @@
-name: Mac tcl9 build and test
+name: Mac tcl9 build
 
 on:
   push:
