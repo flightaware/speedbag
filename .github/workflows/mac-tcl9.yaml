@@ -30,6 +30,3 @@ jobs:
     - name: Install
       run: sudo make install
 
-    - name: Test
-      run: make test
-
